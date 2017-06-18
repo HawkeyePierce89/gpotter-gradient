@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test gpotter-gradient</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="color"></div>
+  <div class="steps"></div>
+  <div class="rgb"></div>
+
+  <script src="../src/gradient.js"></script>
+  <script>
+    const elColor = document.getElementsByClassName("color")[0];
+    const elSteps = document.getElementsByClassName("steps")[0];
+    const elRGB = document.getElementsByClassName("rgb")[0];
+    const gradient = {
+      0: '#ff3336',
+      60: '#aa7acc',
+      100: '#0091ff'
+    };
+
+    let htmlSteps = '';
+    let htmlRGB = '';
+
+    elColor.style.background = 'linear-gradient(to bottom, #ff3336 0%,#aa7acc 60%,#0091ff 100%)';
+
+    for (var i=0; i<=100; i++) {
+      htmlSteps += `<div style="background: ${getColorFromGradient(gradient, i)};" class="steps-item"></div>`;
+      htmlRGB   += `<div class="rgb-item">${getColorFromGradient(gradient, i)}</div>`;
+    }
+
+    elSteps.innerHTML = htmlSteps;
+    elRGB.innerHTML = htmlRGB;
+  </script>
+
+</body>
+</html>

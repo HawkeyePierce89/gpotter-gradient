@@ -1,0 +1,26 @@
+.color {
+  float: left;
+  width: 100px;
+  height: 2020px;
+}
+
+.steps {
+  float: left;
+  margin-left: 20px;
+  width: 100px;
+}
+
+.steps-item {
+  height: 20px;
+}
+
+.rgb {
+  float: left;
+  margin-left: 20px;
+  width: 100px;
+}
+
+.rgb {
+  height: 20px;
+  line-height: 20px;
+}
