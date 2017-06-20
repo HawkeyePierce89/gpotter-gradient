@@ -1,4 +1,4 @@
-function getColorFromGradient(gradient, step) {
+export default function getColorFromGradient(gradient, step) {
 
   if (gradient[step]) return gradient[step];
 
