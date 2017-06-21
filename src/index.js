@@ -1,12 +1,27 @@
+import {Colors} from './helpers/colors';
+import {rgbToRrggbb} from './helpers/rgbToRrggbb';
+
 export default function getColorFromGradient(gradient, step) {
+
+  const keys = Object.keys(gradient);
+
+  keys.map(key => {
+    const item = gradient[key];
+
+    if (item.charAt(0) === '#' && item.length === 7) {
+      return true;
+    } else if (item.charAt(0) === '#' && item.length === 4) {
+      gradient[key] = rgbToRrggbb(item);
+    } else {
+      gradient[key] = Colors[item.toLowerCase()];
+    }
+  });
 
   if (gradient[step]) return gradient[step];
 
   const R = {};
   const G = {};
   const B = {};
-
-  const keys = Object.keys(gradient);
 
   const closestStart = Math.max(...keys.filter(v => v < step));
   const closestEnd = Math.min(...keys.filter(v => v > step));

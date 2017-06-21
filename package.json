@@ -1,6 +1,6 @@
 {
   "name": "gpotter-gradient",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Get color from gradient",
   "main": "index.js",
   "directories": {

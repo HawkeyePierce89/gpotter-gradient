@@ -4,23 +4,17 @@
   height: 2020px;
 }
 
-.steps {
+.steps,
+.rgb,
+.iterator {
   float: left;
   margin-left: 20px;
   width: 100px;
 }
 
-.steps-item {
-  height: 20px;
-}
-
-.rgb {
-  float: left;
-  margin-left: 20px;
-  width: 100px;
-}
-
-.rgb {
+.steps-item,
+.rgb-item,
+.iterator-item {
   height: 20px;
   line-height: 20px;
 }
