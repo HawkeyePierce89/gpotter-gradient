@@ -34,6 +34,7 @@
   "scripts": {
     "client:build": "webpack --config ./config/webpack.client.config.js",
     "server:build": "webpack --config ./config/webpack.server.config.js",
+    "build": "npm run client:build && npm run server:build",
     "test": "mocha"
   }
 }
