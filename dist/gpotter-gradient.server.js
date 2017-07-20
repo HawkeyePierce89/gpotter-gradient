@@ -73,10 +73,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (immutable) */ __webpack_exports__["default"] = getColorFromGradient;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_colors__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_rgbToRrggbb__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_step__ = __webpack_require__(3);
+
 
 
 
 function getColorFromGradient(gradient, step) {
+  if (!__WEBPACK_IMPORTED_MODULE_2__helpers_step__["a" /* isValidValue */](step)) {
+    return null;
+  }
 
   const keys = Object.keys(gradient);
 
@@ -289,6 +294,45 @@ const Colors = {
 function rgbToRrggbb(rgb) {
   return `${rgb.charAt(0)}${rgb.charAt(1)}${rgb.charAt(1)}${rgb.charAt(2)}${rgb.charAt(2)}${rgb.charAt(3)}${rgb.charAt(3)}`;
 }
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__constants__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isInteger__ = __webpack_require__(5);
+
+
+
+const isValidValue = step => {
+  const value = parseInt(step, 10);
+  return __WEBPACK_IMPORTED_MODULE_1__isInteger__["a" /* default */](value) && value >= __WEBPACK_IMPORTED_MODULE_0__constants__["b" /* MIN_STEP_VALUE */] && value <= __WEBPACK_IMPORTED_MODULE_0__constants__["a" /* MAX_STEP_VALUE */];
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = isValidValue;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const MIN_STEP_VALUE = 0;
+/* harmony export (immutable) */ __webpack_exports__["b"] = MIN_STEP_VALUE;
+
+const MAX_STEP_VALUE = 100;
+/* harmony export (immutable) */ __webpack_exports__["a"] = MAX_STEP_VALUE;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// https://github.com/Financial-Times/polyfill-service/blob/master/polyfills/Number/isInteger/polyfill.js
+/* harmony default export */ __webpack_exports__["a"] = (Number.isInteger || function (value) {
+  return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+});
 
 /***/ })
 /******/ ]);

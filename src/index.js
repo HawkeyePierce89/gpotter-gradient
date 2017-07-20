@@ -1,7 +1,11 @@
-import {Colors} from './helpers/colors';
-import {rgbToRrggbb} from './helpers/rgbToRrggbb';
+import { Colors } from './helpers/colors';
+import { rgbToRrggbb } from './helpers/rgbToRrggbb';
+import { isValidValue } from './helpers/step';
 
 export default function getColorFromGradient(gradient, step) {
+  if (!isValidValue(step)) {
+    return null;
+  }
 
   const keys = Object.keys(gradient);
 
@@ -46,5 +50,4 @@ export default function getColorFromGradient(gradient, step) {
   B.final = (B.final.length === 1) ? `0${B.final}` : B.final;
 
   return `#${R.final}${G.final}${B.final}`;
-
 }

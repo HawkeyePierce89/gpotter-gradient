@@ -80,9 +80,14 @@ var _colors = __webpack_require__(1);
 
 var _rgbToRrggbb = __webpack_require__(2);
 
+var _step = __webpack_require__(3);
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function getColorFromGradient(gradient, step) {
+  if (!(0, _step.isValidValue)(step)) {
+    return null;
+  }
 
   var keys = Object.keys(gradient);
 
@@ -308,6 +313,62 @@ exports.rgbToRrggbb = rgbToRrggbb;
 function rgbToRrggbb(rgb) {
   return "" + rgb.charAt(0) + rgb.charAt(1) + rgb.charAt(1) + rgb.charAt(2) + rgb.charAt(2) + rgb.charAt(3) + rgb.charAt(3);
 }
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isValidValue = undefined;
+
+var _constants = __webpack_require__(4);
+
+var _isInteger = __webpack_require__(5);
+
+var _isInteger2 = _interopRequireDefault(_isInteger);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var isValidValue = exports.isValidValue = function isValidValue(step) {
+  var value = parseInt(step, 10);
+  return (0, _isInteger2.default)(value) && value >= _constants.MIN_STEP_VALUE && value <= _constants.MAX_STEP_VALUE;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var MIN_STEP_VALUE = exports.MIN_STEP_VALUE = 0;
+var MAX_STEP_VALUE = exports.MAX_STEP_VALUE = 100;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+// https://github.com/Financial-Times/polyfill-service/blob/master/polyfills/Number/isInteger/polyfill.js
+exports.default = Number.isInteger || function (value) {
+  return typeof value === "number" && isFinite(value) && Math.floor(value) === value;
+};
+
+module.exports = exports["default"];
 
 /***/ })
 /******/ ]);
